@@ -5,7 +5,7 @@ Unit test auditor for daemon development and deployment instances.
 ## List of Parameters
 
 | Flag | Required |Description                              |
-|:----:|----------|-----------------------------------------|
+|:----:|:--------:|-----------------------------------------|
 | s    | N        | server address of the daemon            |
 | p    | Y        | port number of the daemon               |
 | d    | N        | test packet defined inside a string     |
