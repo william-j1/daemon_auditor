@@ -13,6 +13,7 @@ Unit test auditor for daemon development and deployment instances.
 | w    | N        | wait for data receivable                |
 | t    | N        | timeout for the data receivable         |
 | c    | N        | override buffer size for bytes readable |
+| l    | N        | delay parameter after connections made  |
 
 ## Use Case Note
 
