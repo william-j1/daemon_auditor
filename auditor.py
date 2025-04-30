@@ -2,6 +2,7 @@ import argparse
 import select
 import socket
 import sys
+import time
 
 if __name__ != "__main__":
     sys.exit()
@@ -15,14 +16,16 @@ try:
     p.add_argument('-w', type=bool, help='wait for data receivable', default=False)
     p.add_argument('-t', type=int, help='timeout for the data receivable', default=5)
     p.add_argument('-c', type=int, help='override buffer size for bytes readable', default=1024)
+    p.add_argument('-l', type=int, help='delay in seconds after connected is established', default=0)
     args = p.parse_args()
 except:
     print('required port parameter missing')
     sys.exit()
 
 try:
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:        
         s.connect((args.s, args.p))
+        time.sleep(args.l)
         if len(args.d):
             s.sendall(args.d if not args.m else args.d.encode('utf-8'))
         if args.w:
